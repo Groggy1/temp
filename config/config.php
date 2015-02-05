@@ -1,5 +1,5 @@
 <?php
-define('URL', 'http://192.168.1.50/startpage/');
+define('URL', 'http://192.168.1.50/temp/');
 define('DB_FLAG', '');
 define('SITE', 'startpage');
 define('TITLE', '');
