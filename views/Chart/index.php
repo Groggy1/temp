@@ -18,8 +18,16 @@
 				title : {
 					text : 'Grader (°C)'
 				},
-				minRange: 5
+				minRange: 2,
+				allowDecimals: false
 			},
+			plotOptions: {
+            spline: {
+	                marker: {
+	                    enabled: false
+	                }
+	            }
+	        },
 			tooltip : {
 				headerFormat : '<b>{series.name}</b><br>',
 				pointFormat : '{point.x:%H:%M %e/%m}: {point.y:.1f} °C'

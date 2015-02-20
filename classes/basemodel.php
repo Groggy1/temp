@@ -19,6 +19,8 @@ class BaseModel {
 		$this -> commonViewData();
 		$this -> SENSORS["28-0000065cef7b"]["name"] = "Vardagsrum";
 		$this -> SENSORS["28-0000065cef7b"]["order"] = 1;
+		$this -> SENSORS["28-0014546a9dff"]["name"] = "Vardagsrum NY";
+		$this -> SENSORS["28-0014546a9dff"]["order"] = 2;
 	}
 
 	//establish viewModel data that is required for all views in this method (i.e. the main template)
