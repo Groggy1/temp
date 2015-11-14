@@ -33,7 +33,7 @@
 				pointFormat : '{point.x:%H:%M %e/%m}: {point.y:.1f} °C'
 			}
 		});
-		
+
 		$('#daily').highcharts({
 			title : {
 				text : 'Temperatur senaste dygnet'
@@ -41,10 +41,10 @@
 			series : [
 			<?php
 			foreach ($viewModel -> get(dayData) as $key => $value) {
-				echo "{ name : '".$value['name']."',";
+				echo "{ name : '" . $value['name'] ."',";
 				echo "data :[";
-				foreach ($value['values'] as $key2 => $value2) {
-					echo "[".$value['added'][$key2].",".$value2."]";
+				foreach ($value['data'] as $key2 => $value2) {
+					echo "[" . $value2 . "]";
 					if($key2 + 1 != sizeof($value['values'])){
 						echo ', ';
 					}
@@ -64,10 +64,10 @@
 			series : [
 			<?php
 			foreach ($viewModel -> get(weekData) as $key => $value) {
-				echo "{ name : '".$value['name']."',";
+				echo "{ name : '" . $value['name'] ."',";
 				echo "data :[";
-				foreach ($value['values'] as $key2 => $value2) {
-					echo "[".$value['added'][$key2].",".$value2."]";
+				foreach ($value['data'] as $key2 => $value2) {
+					echo "[" . $value2 . "]";
 					if($key2 + 1 != sizeof($value['values'])){
 						echo ', ';
 					}
@@ -80,9 +80,10 @@
 			?>
 			]
 		});
-	}); 
+	});
 </script>
 
 <script src="<?php echo URL; ?>public/js/highcharts.js"></script>
+<script src="<?php echo URL; ?>public/js/dark-unica.js"></script>
 <div id="daily" style="max-width: 600px; height: 400px; margin: 0 auto"></div>
 <div id="weekly" style="max-width: 600px; height: 400px; margin: 0 auto"></div>

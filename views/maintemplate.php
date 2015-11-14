@@ -11,7 +11,7 @@
 </head>
 <body>
 <div class="tempNow">
-	<a href="<?php echo URL;?>">Temperatur</a> | <a href="<?php echo URL;?>chart">Grafer</a>
+	<a href="<?php echo URL;?>">Temperatur</a> | <a href="<?php echo URL;?>chart/forecast">Prognos</a> | <a href="<?php echo URL;?>chart">Grafer</a> | <a href="<?php echo URL;?>chart/history">Historik</a>
 </div>
 <?php require ($this -> viewFile);?>
 </body>

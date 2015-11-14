@@ -17,9 +17,9 @@ class BaseModel {
 		$this -> db = new Database();
 		$this -> viewModel = new ViewModel();
 		$this -> commonViewData();
-		$this -> SENSORS["28-0000065cef7b"]["name"] = "Vardagsrum";
-		$this -> SENSORS["28-0000065cef7b"]["order"] = 1;
-		$this -> SENSORS["28-0014546a9dff"]["name"] = "Vardagsrum NY";
+		$this -> SENSORS["28-01156193b4ff"]["name"] = "TV-rum";
+		$this -> SENSORS["28-01156193b4ff"]["order"] = 1;
+		$this -> SENSORS["28-0014546a9dff"]["name"] = "Ute";
 		$this -> SENSORS["28-0014546a9dff"]["order"] = 2;
 	}
 
