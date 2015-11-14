@@ -7,14 +7,14 @@ define('TITLE', '');
 //DB-configuration
 define('SQL_ENGINE', 'mysql');
 define('SQL_HOST', 'localhost');
-define('SQL_DB', 'termometer');
-define('SQL_USER', 'root');
-define('SQL_PASS', 'abc123');
+define('SQL_DB', 'dbDATABASE');
+define('SQL_USER', 'dbUSER');
+define('SQL_PASS', 'dbPASS');
 define('SQL_PORT', '3306');
 
 //Sensor ID's
-$sensID[0] = "28-01156193b4ff";
-$sensID[1] = "28-0014546a9dff";
+$sensID[0] = "SENSID1";
+$sensID[1] = "SENSID2";
 
 //Forecestconfig
 DEFINE('FORECASTSENSOR',$sensID[1]); //sensor that are matched with forecast
