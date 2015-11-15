@@ -6,11 +6,13 @@ $db = new Database();
 $referenceTimeFromDB = $db -> select_query("SELECT `referenceTime` FROM `forecast` ORDER BY `referenceTime` DESC LIMIT 1");
 $referenceTimeFromDB = $referenceTimeFromDB[0][0];
 
-//http://www.smhi.se/klimatdata/oppna-data/meteorologiska-data -- Info om apiet
-$forecast = file_get_contents("http://opendata-download-metfcst.smhi.se/api/category/pmp1.5g/version/1/geopoint/lat/".LAT."/lon/".LON."/data.json");
+//http://www.smhi.se/klimatdata/oppna-data/meteorologiska-data -- Info om api:et
+//http://www.smhi.se/klimatdata/ladda-ner-data/api-for-pmp-dokumentation-1.76980 -- mer info om api:et
+$forecast = file_get_contents("http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/1/geopoint/lat/".LAT."/lon/".LON."/data.json");
 $forecast = json_decode($forecast, true);
 
 $referenceTime = date('Y-m-d H:i:s',strtotime($forecast["referenceTime"]));
+$approvedTime = date('Y-m-d H:i:s',strtotime($forecast["approvedTime"]));
 
 //If not updated forecast, no need to update
 if ($referenceTime == $referenceTimeFromDB) {
@@ -20,7 +22,7 @@ if ($referenceTime == $referenceTimeFromDB) {
 }
 
 $param =[];
-$endtime = strtotime($referenceTime) + 172800;
+$endtime = strtotime($referenceTime) + 259200;
 
 foreach ($forecast["timeseries"] as $key => $value) {
   $validTime = strtotime($value["validTime"]);
@@ -31,7 +33,7 @@ foreach ($forecast["timeseries"] as $key => $value) {
     break;
   }
 
-  array_push($param, array(':referenceTime' => $referenceTime, ':validTime' => date('Y-m-d H:i:s',strtotime($value["validTime"])), ':temperature' => $value["t"], ':precipitation' => $value['pit']));
+  array_push($param, array(':approvedTime' => $approvedTime, ':referenceTime' => $referenceTime, ':validTime' => date('Y-m-d H:i:s',strtotime($value["validTime"])), ':temperature' => $value["t"], ':precipitation' => $value['pmean']));
 }
 
-$result = $db -> multi_query("INSERT INTO `forecast`(`referenceTime`, `validTime`, `temperature`, `precipitation`, `added`) VALUES (:referenceTime,:validTime,:temperature,:precipitation, now())", $param);
+$result = $db -> multi_query("INSERT INTO `forecast`(`approvedTime`,`referenceTime`, `validTime`, `temperature`, `precipitation`, `added`) VALUES (:approvedTime, :referenceTime,:validTime,:temperature,:precipitation, now())", $param);

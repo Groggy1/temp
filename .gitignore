@@ -166,3 +166,4 @@ pip-log.txt
 # Different files not included#
 ###############################
 config/config.php
+.sync-config.cson
