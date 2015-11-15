@@ -71,6 +71,7 @@ class ChartModel extends BaseModel {
 
 	public function forecast()
 	{
+		$this -> db -> select_query("SET SESSION group_concat_max_len = 1000000");
 		$this->db->select_query("SET time_zone = +02:00");
 
 		$historyResult = $this->db->select_query("SELECT `sensorID`, `hour`, `maximal`, `minimum` FROM `hour_history` WHERE valid = 1 AND hour >= DATE_SUB(NOW(), INTERVAL 3 DAY) AND sensorID = :sensID",array(':sensID' => FORECASTSENSOR));
