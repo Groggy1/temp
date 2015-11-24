@@ -48,7 +48,7 @@ class ChartModel extends BaseModel {
 
 	public function history() {
 		$sql = "SELECT  `sensorID`,day,`maximal`,`minimum`,`average` FROM `history`
-				WHERE `valid`= 1
+				WHERE `valid`= 1 AND `day` >= DATE_SUB(now(), INTERVAL 1 MONTH)
 				ORDER BY `day` DESC";
 
 		$result = $this -> db -> select_query($sql);
