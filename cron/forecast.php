@@ -11,6 +11,10 @@ $referenceTimeFromDB = $referenceTimeFromDB[0][0];
 $forecast = file_get_contents("http://opendata-download-metfcst.smhi.se/api/category/pmp2g/version/1/geopoint/lat/".LAT."/lon/".LON."/data.json");
 $forecast = json_decode($forecast, true);
 
+if (sizeof($forecast) == 0) {
+  break;
+}
+
 $referenceTime = date('Y-m-d H:i:s',strtotime($forecast["referenceTime"]));
 $approvedTime = date('Y-m-d H:i:s',strtotime($forecast["approvedTime"]));
 
