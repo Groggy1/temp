@@ -26,7 +26,7 @@ if ($referenceTime == $referenceTimeFromDB) {
 }
 
 $param =[];
-$endtime = strtotime($referenceTime) + 259200;
+$endtime = strtotime($referenceTime) + 432000;
 
 foreach ($forecast["timeseries"] as $key => $value) {
   $validTime = strtotime($value["validTime"]);
