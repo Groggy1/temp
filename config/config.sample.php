@@ -1,5 +1,5 @@
 <?php
-define('URL', 'http://192.168.0.50/temp/');
+define('URL', 'http://'.$_SERVER["SERVER_ADDR"].'/pathtoscript/');
 define('DB_FLAG', '');
 define('SITE', 'startpage');
 define('TITLE', '');
