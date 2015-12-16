@@ -16,7 +16,7 @@ do
 	TEMP=`echo "$GETDATA2" | sed -n 's/.*t=//;p'`
 
 	# test if crc is 'YES' and temperature is not -62 or +85
-        if [ `echo $GETDATA1 | sed 's/^.*\(...\)$/\1/'` == "YES" -a $TEMP != "-62" -a $TEMP != "85000"  ]
+        if [ `echo $GETDATA1 | sed 's/^.*\(...\)$/\1/'` == "YES" -a $TEMP != "-62000" -a $TEMP != "85000"  ]
            then
 			SQLPART="$SQLPART ('$file', NOW(), $TEMP/1000),"
 		else
