@@ -1,0 +1,33 @@
+.tempNow {
+	text-align: center;
+	margin: auto;
+}
+
+.container-fluid {
+  @include make-container();
+  max-width: 600px;
+  align-content: center;
+  @include media-breakpoint-down(sm) {
+    padding-left:  0;
+    padding-right: 0;
+  }
+}
+
+h1 {
+	text-align: center;
+	margin: 0px;
+}
+
+body {
+	background-color: #000;
+	color: #7E7F80;
+}
+
+a, a:link, a:active, a:hover {
+	color: #7E7F80;
+	text-decoration: none;
+}
+
+th{
+  text-align: center;
+}

@@ -10,9 +10,11 @@
 <link rel="shortcut icon" href="<?php echo URL; ?>public/img/favicon.ico" />
 </head>
 <body>
+	<div class="container-fluid">
 <div class="tempNow">
 	<a href="<?php echo URL;?>">Temperatur</a> | <a href="<?php echo URL;?>chart/forecast">Prognos</a> | <a href="<?php echo URL;?>chart">Grafer</a> | <a href="<?php echo URL;?>chart/history">Historik</a>
 </div>
 <?php require ($this -> viewFile);?>
+</div>
 </body>
 </html>

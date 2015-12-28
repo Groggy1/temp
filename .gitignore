@@ -167,3 +167,5 @@ pip-log.txt
 ###############################
 config/config.php
 .sync-config.cson
+sass/
+public/css/style.css.map
