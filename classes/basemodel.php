@@ -29,5 +29,13 @@ class BaseModel {
 		//e.g. $this->viewModel->set("mainMenu",array("Home" => "/home", "Help" => "/help"));
 	}
 
+	public function set($name, $value) {
+		$this -> $name = $value;
+	}
+
+	public function get($name) {
+		return $this -> $name;
+	}
+
 }
 ?>
