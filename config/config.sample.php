@@ -3,6 +3,9 @@ define('URL', 'http://'.$_SERVER["SERVER_ADDR"].'/pathtoscript/');
 define('DB_FLAG', '');
 define('SITE', 'startpage');
 define('TITLE', '');
+//External weather site for mirroring
+define('extsite','<url to ext.site for mirroring');
+define('apikey','apikey');
 
 //DB-configuration
 define('SQL_ENGINE', 'mysql');
