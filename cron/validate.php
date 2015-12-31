@@ -60,6 +60,10 @@ if (sizeof($result) > 0) {
 		}
 	}
 
+	if (isset($param) == 0) {
+		exit;
+	}
+
 	$sql = "UPDATE measurement SET valid = 1 WHERE sensorID = :sensorID AND added = :added AND valid IS NULL LIMIT 1;";
 	$db -> multi_query($sql, $param);
 	if (isset($param2) > 0) {
